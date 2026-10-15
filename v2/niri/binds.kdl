@@ -48,8 +48,8 @@ binds {
     // 切换 Noctalia 剪贴板历史 / Toggle Noctalia clipboard history panel
     Mod+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
 
-    // 呼出 M3E 原生壁纸选择器 (聚合静态/动态壁纸/搜索/分类) / Open M3E wallpaper picker (Static & Live)
-    Mod+W repeat=false { spawn "~/.config/niri/scripts/wallpaper-picker.py"; }
+    // 切换 Noctalia 静态壁纸选择器 / Toggle Noctalia wallpaper picker
+    Mod+W { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
 
     // 免打扰随机切换下一张壁纸 (主题取色自动跟随更新) / Switch to a random wallpaper immediately
     Mod+Ctrl+W { spawn "noctalia" "msg" "wallpaper-random"; }
@@ -188,9 +188,14 @@ binds {
     XF86AudioMute        { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
 
     // 外接显示器硬件亮度调节 (ddcutil, 允许锁屏状态下生效) / DDC monitor brightness control (allow when locked)
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "sh" "-c" "ddcutil setvcp 10 + 10"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "ddcutil setvcp 10 - 10"; }
-
+    //XF86MonBrightnessUp   allow-when-locked=true { spawn "sh" "-c" "ddcutil setvcp 10 + 10"; }
+    //XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "ddcutil setvcp 10 - 10"; }
+    
+    //麦克风禁音键Fn-F4
+    XF86AudioMicMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }    
+    //内置显示器亮度调节
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
     // -------------------------------------------------------------------------
     // 8. 截图按键控制 / Screenshot Controls
     // -------------------------------------------------------------------------

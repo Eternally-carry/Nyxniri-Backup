@@ -233,10 +233,10 @@ if status is-interactive
 
     # Tab 智能自动补全：优先采纳灰色历史建议，无建议时触发 Tab 列表补全
     function custom_tab_complete
-        if commandline -f accept-autosuggestion
+        if commandline -f complete
             # 成功采纳自动提示建议
         else
-            commandline -f complete
+            commandline -f accept-autosuggestion
         end
     end
 
