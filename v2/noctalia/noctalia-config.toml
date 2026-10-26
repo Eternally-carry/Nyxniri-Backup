@@ -196,8 +196,8 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
 [theme.templates]
-builtin_ids = ["kitty", "qt", "starship"]
-community_ids = []
+builtin_ids = ["kitty", "qt"]
+community_ids = ["starship"]
 
 # NyxMellow 动态 fcitx5 皮肤（mellow 形状 + Material You 自动取色）
 # 路径中的 /home/user 为占位符，由 lib/deploy.sh 在部署时替换为实际 $HOME
