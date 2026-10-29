@@ -39,7 +39,7 @@ run_doctor() {
         msg doctor_err "Wallpapers: $doc_pics_dir/Wallpapers directory is missing"
     fi
 
-    local missing_critical=0
+        local missing_critical=0
     for cmd in "$MAIN_WM" "$THEME_ENGINE" fish starship; do
         if ! command -v "$cmd" >/dev/null 2>&1; then
             msg doctor_err "Dependency: '$cmd' is missing from PATH"
@@ -47,8 +47,24 @@ run_doctor() {
         fi
     done
 
+    # python-cairo: required system package (Cairo bindings for Python)
+    if pacman -Qq python-cairo >/dev/null 2>&1; then
+        msg doctor_ok "Dependency: python-cairo is installed"
+    else
+        msg doctor_err "Dependency: python-cairo is missing (pacman -S python-cairo)"
+        missing_critical=$((missing_critical + 1))
+    fi
+
+    # adw-gtk-theme: required system package (Adwaita GTK3 theme)
+    if pacman -Qq adw-gtk-theme >/dev/null 2>&1; then
+        msg doctor_ok "Dependency: adw-gtk-theme is installed"
+    else
+        msg doctor_err "Dependency: adw-gtk-theme is missing (pacman -S adw-gtk-theme)"
+        missing_critical=$((missing_critical + 1))
+    fi
+
     if [ "$missing_critical" -eq 0 ]; then
-        msg doctor_ok "Core Dependencies: All core tools ($MAIN_WM, $THEME_ENGINE, fish, starship) are installed"
+        msg doctor_ok "Core Dependencies: All core packages ($MAIN_WM, $THEME_ENGINE, fish, starship, python-cairo, adw-gtk-theme) are installed"
     fi
 
     for script_info in \
@@ -235,6 +251,8 @@ generate_bug_report() {
         echo '```text'
         if command -v pacman >/dev/null 2>&1; then
             echo "xdg-desktop-portal-gtk: $(pacman -Qq xdg-desktop-portal-gtk 2>/dev/null || echo 'NOT INSTALLED')"
+            echo "python-cairo: $(pacman -Qq python-cairo 2>/dev/null || echo 'NOT INSTALLED')"
+            echo "adw-gtk-theme: $(pacman -Qq adw-gtk-theme 2>/dev/null || echo 'NOT INSTALLED')"
         fi
         df -h "$HOME" 2>/dev/null | awk 'NR==2{print "home free space:", $4}'
         if command -v fcitx5 >/dev/null 2>&1 || [ -f "$HOME/.config/fcitx5/conf/classicui.conf" ]; then

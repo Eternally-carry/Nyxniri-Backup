@@ -27,6 +27,7 @@ DEPS=(
     "ttf-jetbrains-mono-nerd"
     "noto-fonts-cjk"
     "python-cairo"
+    "adw-gtk-theme"
 )
 
 # Packages only available via AUR (not in official repos)
