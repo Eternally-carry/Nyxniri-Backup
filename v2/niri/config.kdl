@@ -28,7 +28,7 @@ environment {
     QT_QPA_PLATFORM "wayland;xcb"
     QT_QPA_PLATFORMTHEME "gtk3"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-
+    XMODIFIERS "@im=fcitx"
     // NVIDIA environment variables (uncommented automatically by install.sh if NVIDIA GPU is detected)
     // GBM_BACKEND "nvidia-drm"
     // __GLX_VENDOR_LIBRARY_NAME "nvidia"
