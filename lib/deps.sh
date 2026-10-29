@@ -26,6 +26,7 @@ DEPS=(
     "ttf-jetbrains-mono"
     "ttf-jetbrains-mono-nerd"
     "noto-fonts-cjk"
+    "python-cairo"
 )
 
 # Packages only available via AUR (not in official repos)
