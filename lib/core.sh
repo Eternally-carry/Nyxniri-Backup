@@ -152,7 +152,7 @@ init_environment_paths() {
         SCRIPT_DIR=""
     fi
 
-    if [ -n "${SCRIPT_DIR:-}" ] && [ -d "$SCRIPT_DIR/$CONFIG_DIR_NAME" ] && [ -d "$SCRIPT_DIR/Wallpapers" ]; then
+    if [ -d "$SCRIPT_DIR/.git" ] && [ -d "$SCRIPT_DIR/$CONFIG_DIR_NAME" ]; then
         RUN_MODE="repo"
         MODE_LABEL="Local Path"
         REPO_DIR="$SCRIPT_DIR"

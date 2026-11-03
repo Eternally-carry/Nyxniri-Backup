@@ -9,11 +9,11 @@ set -euo pipefail
 
 CACHE_DIR="$HOME/.cache/NyxNiri"
 # shellcheck disable=SC2034
-REPO_URL="https://github.com/ech678/NyxNiri.git"
+REPO_URL="https://github.com/Eternally-carry/Nyxniri-Backup.git"
 
 GIT_MIRROR_REGISTRY=(
-    "Official|https://github.com/ech678/NyxNiri.git"
-    "gh-proxy.org|https://gh-proxy.org/https://github.com/ech678/NyxNiri.git"
+    "Official|https://github.com/Eternally-carry/NyxNiri-Backup.git"
+    "gh-proxy.org|https://gh-proxy.org/https://github.com/Eternally-carry/NyxNiri-Backup.git"
 )
 
 # Standalone bootstrap cannot source lib/network.sh, so keep a minimal local

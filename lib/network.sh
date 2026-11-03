@@ -7,8 +7,8 @@
 set -euo pipefail
 
 GIT_MIRROR_REGISTRY=(
-    "Official|https://github.com/ech678/NyxNiri.git"
-    "gh-proxy.org|https://gh-proxy.org/https://github.com/ech678/NyxNiri.git"
+    "Official|https://github.com/Eternally-carry/NyxNiri-Backup.git"
+    "gh-proxy.org|https://gh-proxy.org/https://github.com/Eternally-carry/NyxNiri-Backup.git"
 )
 
 RAW_MIRROR_TEMPLATES=(
