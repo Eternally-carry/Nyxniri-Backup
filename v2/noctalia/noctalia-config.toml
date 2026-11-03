@@ -12,7 +12,7 @@ order = ["bar"]
 background_opacity = 0.0
 border_width = 0.0
 capsule = true
-capsule_border = "outline"
+capsule_border = "outline_variant"
 capsule_foreground = "secondary"
 capsule_opacity = 0.79
 capsule_padding = 10.0
@@ -196,8 +196,8 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
 [theme.templates]
-builtin_ids = ["kitty", "qt", "starship"]
-community_ids = []
+builtin_ids = ["kitty", "qt"]
+community_ids = ["starship"]
 
 # NyxMellow 动态 fcitx5 皮肤（mellow 形状 + Material You 自动取色）
 # 路径中的 /home/user 为占位符，由 lib/deploy.sh 在部署时替换为实际 $HOME
@@ -234,9 +234,6 @@ format = "{:%a, %d %b %H:%M}"
 [widget.tray]
 detached_panel = true
 drawer = true
-
-[widget."ray/echolyrics:echolyrics"]
-capsule = false
 
 [widget.mpvpaper]
 type = "noctalia/mpvpaper:mpvpaper"
