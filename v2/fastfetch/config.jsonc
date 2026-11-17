@@ -1,113 +1,129 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "type": "small",
-        "color": {
-            "1": "magenta",
-            "2": "magenta"
-        },
-        "padding": {
-            "top": 3,
-            "left": 4,
-            "right": 6
-        }
+    	"source": "~/.local/share/fastfetch/images/penrose-sky-wp.png",
+    	"type": "kitty",
+      	"height": 18,
+      	"padding": {
+    		"top": 1,
+            "right": 2
+      	}
     },
     "display": {
-        "separator": "    ",
+        "separator": " ➜  ",
         "color": {
             "keys": "magenta",
             "title": "magenta"
+        },
+        "key": {
+            "width": 6
         }
     },
     "modules": [
+	"break",
         {
             "type": "custom",
-            "format": ""
+            "format": " {#magenta}みず かがみ{#} ———— hanser小天使！！"
         },
-        {
-            "type": "custom",
-            "format": " {#magenta}STAY LIBRE{#}  ──  自由であり続けろ"
-        },
-        {
-            "type": "custom",
-            "format": ""
-        },
-        {
-            "type": "custom",
-            "format": " {#magenta}✦ system{#}"
-        },
+        "break",
         {
             "type": "os",
-            "key": "   os  ",
-            "format": "{3} ({12})"
+            "key": "OS",
+            "keyColor": "light_magenta"
         },
         {
             "type": "kernel",
-            "key": "   kern",
-            "format": "{2}"
+            "key": " ├  ",
+            "keyColor": "magenta"
         },
         {
-            "type": "wm",
-            "key": "   wm  ",
-            "format": "{1} ({3})"
-        },
-        {
-            "type": "custom",
-            "key": "   rice",
-            "format": "NyxNiri"
-        },
-        {
-            "type": "terminal",
-            "key": "   term",
-            "format": "{1}"
+            "type": "command",
+            "key": " ├ 󰏖 ",
+            "keyColor": "magenta",
+            "text": "pacman -Q | wc -l | awk '{print $1\" (pacman)\"}'"
         },
         {
             "type": "shell",
-            "key": "   sh  ",
-            "format": "{1}"
+            "key": " └  ",
+            "keyColor": "magenta" 
+        },
+        "break",
+        {
+            "type": "wm",
+            "key": "WM",
+            "keyColor": "light_magenta" 
         },
         {
-            "type": "custom",
-            "format": ""
+            "type": "wmtheme",
+            "key": " ├ 󰉼 ",
+            "keyColor": "magenta",
+            "format": "{}" 
         },
         {
-            "type": "custom",
-            "format": " {#magenta}✦ hardware{#}"
+            "type": "command",
+            "key": " ├ 󰀻 ",
+            "keyColor": "magenta",
+            "text": "gsettings get org.gnome.desktop.interface icon-theme | tr -d \"'\" || echo \"Unknown\""
+        },
+        {
+            "type": "command",
+            "key": " ├  ",
+            "keyColor": "magenta",
+            "text": "echo $XCURSOR_THEME || echo \"Unknown\""
+        },
+        {
+            "type": "terminal",
+            "key": " ├  ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "terminalfont",
+            "key": " └  ",
+            "keyColor": "magenta",
+            "format": "{}"
+        },
+        "break",
+        {
+            "type": "host",
+            "format": "{5} {1}",
+            "key": "PC",
+            "keyColor": "light_magenta"
         },
         {
             "type": "cpu",
-            "key": "   cpu ",
-            "format": "{1}"
+            "format": "{1} ({3}) @ {7}",
+            "key": " ├  ",
+            "keyColor": "magenta"
         },
-        {
-            "type": "gpu",
-            "key": "   gpu ",
-            "format": "{2}"
-        },
-        {
-            "type": "display",
-            "key": "   disp",
-            "format": "{width}x{height} @{refresh-rate}Hz"
+	{
+            "type": "command",
+            "key": " ├ 󰢮 ",
+            "keyColor": "magenta",
+            "text": "fastfetch -s gpu --pipe | head -n 1 | sed -e 's/GPU ➜ //g' -e 's# /.*##'"
         },
         {
             "type": "memory",
-            "key": "   mem ",
-            "format": "{1} / {2} ({3})"
+            "key": " ├  ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "swap",
+            "key": " ├ 󰓡 ",
+            "keyColor": "magenta"
         },
         {
             "type": "disk",
-            "key": "   disk",
-            "folders": "/",
-            "format": "{1} / {2} ({3})"
+            "key": " ├ 󰋊 ",
+            "keyColor": "magenta"
         },
         {
-            "type": "uptime",
-            "key": "   up  ",
-            "format": "{?days}{days}d {?}{hours}h {minutes}m"
+            "type": "monitor",
+            "format": "{1} {2}x{3} @ {11}Hz",
+            "key": " └  ",
+            "keyColor": "magenta"
         },
-        {
-            "type": "custom",
-            "format": ""
-        }
+	"break",
+        "colors",
+        "break"
     ]
 }
